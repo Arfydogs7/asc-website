@@ -1,0 +1,120 @@
+<div>
+    <label>Name</label>
+    <input type="text" name="name" value="<%= tutor.name %>">
+</div>
+<div>
+    <label>Grade</label>
+    <select name="grade" value="<%= tutor.grade %>">
+        <option value="9">Freshman</option>
+        <option value="10">Sophomore</option>
+        <option value="11">Junior</option>
+        <option value="12">Senior</option>
+    </select>
+</div>
+<div>
+    <label>Email (non-IUSD)</label>
+    <input type="email" name="email" value="<%= tutor.email %>">
+</div>
+<div>
+    <label>Phone Number (optional)</label>
+    <input type="text" name="number" value="<%= tutor.number %>">
+</div>
+<div>
+    <label>Tutoring Subjects</label>
+    <p>Please only select the highest level of each subject you're willing to tutor (for example, if you can tutor
+    Math 1, Math 2 and Math 3, just select Math 3. If the classes are APs or different enough to be differentiated, 
+    however, such as AP Lit and AP Lang, select both)</p>
+    <p>Math</p>
+    <input type="checkbox" name="math" value="Math 1"/> Math 1
+    <input type="checkbox" name="math" value="Math 2"/> Math 2
+    <input type="checkbox" name="math" value="Enhanced Math 2"/> Enh Math 2
+    <input type="checkbox" name="math" value="Math 3"/> Math 3
+    <input type="checkbox" name="math" value="Enhanced Math 3"/> Enh Math 3
+    <input type="checkbox" name="math" value="Precalculus"/> Precalc
+    <input type="checkbox"/> Computer Science
+    <ul>
+        <li><input type="checkbox" name="math" value="AP Computer Science"/> AP CompSci</li>
+        <li><input type="checkbox" name="math" value="AP Computer Science Principles"/> AP CompSci Principles</li>
+        <li><input type="checkbox" name="math" value="App Development"/> App Dev</li>
+    </ul>
+    <input type="checkbox" name="math" value="AP Statistics"/> AP Statistics
+    <input type="checkbox" name="math" value="AP Calculus AB"/> AP Calculus AB
+    <input type="checkbox" name="math" value="AP Calculus BC"/> AP Calculus BC
+    <p>Science</p>
+    <input type="checkbox"/> Biology
+    <ul>
+        <li><input type="checkbox" name="science" value="Next Gen Biology"/> NextGen Biology </li>
+        <li><input type="checkbox" name="science" value="Honors Biology"/> H Biology </li>
+        <li><input type="checkbox" name="science" value="AP Biology"/> AP Biology </li>
+    </ul>
+    <input type="checkbox"/> Chemistry
+    <ul>
+        <li><input type="checkbox" name="science" value="Next Gen Chemistry"/> NextGen Chemistry </li>
+        <li><input type="checkbox" name="science" value="Honors Chemistry"/> H Chemistry </li>
+        <li><input type="checkbox" name="science" value="AP Chemistry"/> AP Chemistry </li>
+    </ul>
+    <input type="checkbox" name="science" value="CP Physics"/> CP Physics
+    <input type="checkbox" name="science" value="AP Physics"/> AP Physics
+    <input type="checkbox" name="science" value="APES"/> AP Environmental Science
+    <input type="checkbox" name="science" value="Marine Science"/> Marine Science
+    <input type="checkbox" name="science" value="Anatomy Physiology"/> Anatomy Physiology
+    <p>English</p>
+    <input type="checkbox" name="english" value="English 1"/> English 1
+    <input type="checkbox" name="english" value="Honors English 1"/> H English 1
+    <input type="checkbox" name="english" value="English 2"/> English 2
+    <input type="checkbox" name="english" value="Honors English 2"/> H English 2
+    <input type="checkbox" name="english" value="English 3"/> English 3
+    <input type="checkbox" name="english" value="English 4"/> English 4
+    <input type="checkbox" name="english" value="AP Language"/> AP Lang
+    <input type="checkbox" name="english" value="AP Literature"/> AP Lit
+    <p>Social Science</p>
+    <input type="checkbox" name="sosci" value="Global Perspectives"/> Global Perspectives
+    <input type="checkbox" name="sosci" value="Honors Global Perspectives"/> H Global Perspectives
+    <input type="checkbox" name="sosci" value="US History"/> CP US History
+    <input type="checkbox" name="sosci" value="AP US History"/> AP US History
+    <input type="checkbox" name="sosci" value="Psychology"/> Psychology
+    <input type="checkbox" name="sosci" value="AP Psychology"/> AP Psychology
+    <input type="checkbox" name="sosci" value="Political Science"/> Political Science
+    <input type="checkbox" name="sosci" value="AP Political Science"/> AP Political Science
+    <input type="checkbox" name="sosci" value="Economics"/> Economics
+    <input type="checkbox" name="sosci" value="AP Economics"/> AP Economics
+    <input type="checkbox" name="sosci" value=""/> Other
+    <p>Language</p>
+    <input type="checkbox"/> Spanish
+    <ul>
+        <li><input type="checkbox" name="language" value="Spanish 1"/> Spanish 1 </li>
+        <li><input type="checkbox" name="language" value="Spanish 2"/> Spanish 2 </li>
+        <li><input type="checkbox" name="language" value="Spanish 3"/> Spanish 3 </li>
+        <li><input type="checkbox" name="language" value="Spanish 4"/> Spanish 4 </li>
+        <li><input type="checkbox" name="language" value="AP Spanish Language"/> AP Spanish Lang </li>
+        <li><input type="checkbox" name="language" value="AP Spanish Lit"/> AP Spanish Lit </li>
+    </ul>
+    <input type="checkbox"/> Latin
+    <ul>
+        <li><input type="checkbox" name="language" value="Latin 1"/> Latin 1 </li>
+        <li><input type="checkbox" name="language" value="Latin 2"/> Latin 2 </li>
+        <li><input type="checkbox" name="language" value="Latin 3"/> Latin 3 </li>
+        <li><input type="checkbox" name="language" value="Latin 4"/> Latin 4 </li>
+        <li><input type="checkbox" name="language" value="AP Latin"/> AP Latin </li>
+    </ul>
+    <input type="checkbox"/> Chinese
+    <ul>
+        <li><input type="checkbox" name="language" value="Chinese 1"/> Chinese 1 </li>
+        <li><input type="checkbox" name="language" value="Chinese 2"/> Chinese 2 </li>
+        <li><input type="checkbox" name="language" value="Chinese 3"/> Chinese 3 </li>
+        <li><input type="checkbox" name="language" value="Chinese 4"/> Chinese 4 </li>
+        <li><input type="checkbox" name="language" value="AP Chinese"/> AP Chinese </li>
+    </ul>
+    <input type="checkbox"/> French
+    <ul>
+        <li><input type="checkbox" name="language" value="French 1"/> French 1 </li>
+        <li><input type="checkbox" name="language" value="French 2"/> French 2 </li>
+        <li><input type="checkbox" name="language" value="French 3"/> French 3 </li>
+        <li><input type="checkbox" name="language" value="French 4"/> French 4 </li>
+    </ul>
+    <p>Standardized Testing</p>
+    <input type="checkbox" name="testing" value="sat"/> SAT
+    <input type="checkbox" name="testing" value="act"/> ACT
+    <input type="checkbox" name="testing" value="IB"/> IB
+    <input type="checkbox" name="testing" value="AP"/> AP
+</div>

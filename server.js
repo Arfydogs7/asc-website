@@ -2,17 +2,22 @@ const express = require("express")
 const app = express()
 const dotenv = require("dotenv")
 const expressLayouts = require("express-ejs-layouts")
+const bodyParser = require("body-parser")
+const methodOverride = require("method-override")
 
 //routers
 const indexRouter = require("./routes/index")
 const tutorRouter = require("./routes/tutors")
 
-//sets views and things
+//set views
 app.set("view engine", "ejs")
 app.set("views", __dirname + "/views")
 app.set("layout", "layouts/layout")
+    //use required modules
 app.use(expressLayouts)
+app.use(methodOverride("_method"))
 app.use(express.static("public"))
+app.use(bodyParser.urlencoded({ limit: "10mb", extended: false }))
 
 //load config
 dotenv.config({ path: "./config.env" })
