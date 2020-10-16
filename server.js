@@ -8,6 +8,8 @@ const methodOverride = require("method-override")
 //routers
 const indexRouter = require("./routes/index")
 const tutorRouter = require("./routes/tutors")
+const resourceRouter = require("./routes/resources")
+const announRouter = require("./routes/announcements")
 
 //set views
 app.set("view engine", "ejs")
@@ -43,5 +45,7 @@ connectDB()
 //connect to routes
 app.use("/", indexRouter)
 app.use("/tutors", tutorRouter)
+app.use("/resources", resourceRouter)
+app.use("/announcements", announRouter)
 
 app.listen(process.env.PORT || 3000)
