@@ -4,6 +4,8 @@ const dotenv = require("dotenv")
 const expressLayouts = require("express-ejs-layouts")
 const bodyParser = require("body-parser")
 const methodOverride = require("method-override")
+const session = require("express-session")
+const passport = require("passport")
 
 //routers
 const indexRouter = require("./routes/index")
@@ -15,14 +17,25 @@ const announRouter = require("./routes/announcements")
 app.set("view engine", "ejs")
 app.set("views", __dirname + "/views")
 app.set("layout", "layouts/layout")
-    //use required modules
+
+//middleware
 app.use(expressLayouts)
 app.use(methodOverride("_method"))
 app.use(express.static("public"))
 app.use(bodyParser.urlencoded({ limit: "10mb", extended: false }))
 
+app.use(session({
+    secret: "keyboard cat",
+    resave: false,
+    saveUninitialized: false,
+}))
+
+app.use(passport.initialize())
+app.use(passport.session())
+
 //load config
-dotenv.config({ path: "./config.env" })
+dotenv.config({ path: "./config/config.env" })
+require("./config/passport")(passport)
 
 //connect to database
 const mongoose = require("mongoose")
@@ -47,5 +60,6 @@ app.use("/", indexRouter)
 app.use("/tutors", tutorRouter)
 app.use("/resources", resourceRouter)
 app.use("/announcements", announRouter)
+app.use("/auth", require("./routes/auth"))
 
 app.listen(process.env.PORT || 3000)
