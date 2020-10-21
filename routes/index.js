@@ -1,5 +1,7 @@
 const express = require("express")
 const router = express.Router()
+const { ensureAuth, ensureGuest } = require("../middleware/auth")
+const Tutor = require("../models/tutors")
 
 router.get("/", (req, res) => {
     res.render("index")
@@ -10,13 +12,25 @@ router.get("/about", (req, res) => {
 })
 
 //login
-router.get("/login", (req, res) => {
+router.get("/login", ensureGuest, (req, res) => {
     res.render("login", { layout: "layouts/login.ejs" })
 })
 
 //admin panel
-router.get("/dashboard", (req, res) => {
-    res.render("dashboard")
+router.get("/dashboard", ensureAuth, async(req, res) => {
+    const searchOptions = {}
+    if (req.query.name && req.query.name !== '') {
+        searchOptions.name = new RegExp(req.query.name, "i")
+    }
+    try {
+        const tutors = await Tutor.find(searchOptions)
+        res.render("dashboard", {
+            tutors: tutors,
+            searchOptions: req.query
+        })
+    } catch {
+        res.redirect("/")
+    }
 })
 
 module.exports = router

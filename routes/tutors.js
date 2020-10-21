@@ -1,6 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const Tutor = require("../models/tutors")
+const { ensureAuth } = require("../middleware/auth")
 
 //all tutors
 router.get("/", async(req, res) => {
@@ -63,8 +64,8 @@ router.get("/:id", async(req, res) => {
     }
 })
 
-//edit
-router.get("/:id/edit", async(req, res) => {
+//edit page
+router.get("/:id/edit", ensureAuth, async(req, res) => {
     try {
         const tutor = await Tutor.findById(req.params.id)
         res.render("tutors/edit", { tutor: tutor })
@@ -73,7 +74,7 @@ router.get("/:id/edit", async(req, res) => {
     }
 })
 
-//update
+//update tutor
 router.put("/:id", async(req, res) => {
     let tutor;
     try {
@@ -109,7 +110,7 @@ router.delete("/:id", async(req, res) => {
     try {
         tutor = await Tutor.findById(req.params.id)
         await tutor.remove()
-        res.redirect("/tutors")
+        res.redirect("/login")
     } catch {
         if (!tutor) {
             res.redirect("/")

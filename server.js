@@ -6,12 +6,15 @@ const bodyParser = require("body-parser")
 const methodOverride = require("method-override")
 const session = require("express-session")
 const passport = require("passport")
+const mongoose = require("mongoose")
+const MongoStore = require("connect-mongo")(session)
 
 //routers
 const indexRouter = require("./routes/index")
 const tutorRouter = require("./routes/tutors")
 const resourceRouter = require("./routes/resources")
 const announRouter = require("./routes/announcements")
+const userRouter = require("./routes/auth")
 
 //set views
 app.set("view engine", "ejs")
@@ -28,6 +31,7 @@ app.use(session({
     secret: "keyboard cat",
     resave: false,
     saveUninitialized: false,
+    store: new MongoStore({ mongooseConnection: mongoose.connection })
 }))
 
 app.use(passport.initialize())
@@ -38,7 +42,6 @@ dotenv.config({ path: "./config/config.env" })
 require("./config/passport")(passport)
 
 //connect to database
-const mongoose = require("mongoose")
 const connectDB = async() => {
     try {
         const conn = await mongoose.connect(process.env.MONGO_URI, {
@@ -60,6 +63,6 @@ app.use("/", indexRouter)
 app.use("/tutors", tutorRouter)
 app.use("/resources", resourceRouter)
 app.use("/announcements", announRouter)
-app.use("/auth", require("./routes/auth"))
+app.use("/auth", userRouter)
 
 app.listen(process.env.PORT || 3000)

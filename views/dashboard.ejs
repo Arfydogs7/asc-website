@@ -1,0 +1,19 @@
+<h2> Dashboard </h2>
+<h3> Announcements </h3>
+<h3> Tutors </h3>
+<form action="/dashboard" method="GET">
+    <label>Search</label>
+    <input type="text" name="name" value="<%= searchOptions.name %>">
+    <button type="submit">Search</button>
+</form>
+<% tutors.forEach(tutor => { %>
+    <div>
+        <a href="/tutors/<%= tutor.id %>"> <%= tutor.name %> </a>
+        <div>
+        <a href="/tutors/<%= tutor.id %>/edit">Edit</a>
+        <%- include('./layouts/partials/deleteForm',
+              { url: `/tutors/${tutor.id}` }) %>
+        </div>
+    </div>
+
+<% }) %>
