@@ -1,10 +1,16 @@
 @import "variables.css";
 @import "fonts.css";
 @import "header.css";
+@import "home.css";
 @import "../images/asclogo.jpg";
 :root {
     font-family: 'Noto Serif', serif;
     font-size: 20px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
 }
 
 *,
@@ -16,5 +22,5 @@
 .container {
     margin: auto;
     max-width: 1200px;
-    margin-bottom: 3rem;
+    margin-bottom: 0px;
 }

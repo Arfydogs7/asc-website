@@ -7,11 +7,8 @@ router.get("/google", passport.authenticate("google", { scope: ["openid", "profi
 
 //callback
 router.get("/google/callback", passport.authenticate("google", { failureRedirect: "/error" }), (req, res) => {
-        res.redirect("/dashboard")
-    })
-    /*
-    router.get('/google/callback', passport.authenticate('google', { successRedirect: "/dashboard", failureRedirect: "/error" }));
-    */
+    res.redirect("/dashboard")
+})
 
 /* can use for debugging
 router.get('/google/callback', function(req, res, next) {
@@ -26,7 +23,7 @@ router.get('/google/callback', function(req, res, next) {
         } else {
             next();
         }
-    })(req, res);
+    })(req, res, next);
 }, (req, res) => {
     res.redirect("/dashboard")
 });

@@ -1,0 +1,46 @@
+.float {
+    position: fixed;
+    width: 100px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: rgb(230, 247, 229);
+    color: black;
+    border-radius: 5px;
+    text-align: center;
+    justify-items: center;
+    box-shadow: 2px 2px 3px #999;
+    text-decoration: none;
+}
+
+.signup-btn {
+    margin: auto;
+    width: 200px;
+    padding: 15px;
+    background-color: rgb(0, 119, 170);
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    font-weight: 200;
+}
+
+a.signup-btn:hover {
+    background-color: rgb(1, 96, 137);
+}
+
+.btn-link {
+    margin-top: 15px;
+    font-weight: 200;
+}
+
+h1.intro {
+    text-align: center;
+    color: white;
+    background: none;
+}
+
+.intro {
+    margin: 0;
+    background: linear-gradient(to right, rgb(98, 200, 220), rgb(32, 167, 166));
+    padding: 15px;
+}
