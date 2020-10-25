@@ -17,7 +17,8 @@ module.exports = function(passport) {
             */
 
             try {
-                let user = await User.findOne({ googleID: profile.id })
+                let user = await User.find({ googleID: profile.id })
+                console.log(profile.id)
                 console.log(user)
                 if (user) {
                     console.log("found user")
