@@ -38,7 +38,7 @@ app.use(passport.session())
 
 //load config
 if (process.env.NODE_ENV !== 'production') {
-    const dotenv = require("dotenv").config()
+    const dotenv = require("dotenv")
     dotenv.config({ path: "./config/config.env" })
 }
 require("./config/passport")(passport)
