@@ -18,7 +18,9 @@ module.exports = function(passport) {
 
             try {
                 let user = await User.findOne({ googleID: profile.id })
+                console.log(user)
                 if (user) {
+                    console.log("found user")
                     done(null, user)
 
                     /* uncomment to be able to add users
@@ -29,6 +31,7 @@ module.exports = function(passport) {
                     */
 
                 } else {
+                    console.log("did not find user")
                     done(null, false, { errorMessage: "not an authorized user" })
                 }
 
