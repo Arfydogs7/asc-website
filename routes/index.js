@@ -16,6 +16,11 @@ router.get("/login", ensureGuest, (req, res) => {
     res.render("login", { layout: "layouts/login.ejs" })
 })
 
+//error authenticating
+router.get("/error", (req, res) => {
+    res.send("there was an error authenticating")
+})
+
 //admin panel
 router.get("/dashboard", ensureAuth, async(req, res) => {
     const searchOptions = {}
