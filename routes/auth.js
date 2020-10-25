@@ -6,14 +6,14 @@ const passport = require("passport")
 router.get("/google", passport.authenticate("google", { scope: ["openid", "profile"] }))
 
 //callback
-/*
 router.get("/google/callback", passport.authenticate("google", { failureRedirect: "/error" }), (req, res) => {
-    res.redirect("/dashboard")
-})
+        res.redirect("/dashboard")
+    })
+    /*
+    router.get('/google/callback', passport.authenticate('google', { successRedirect: "/dashboard", failureRedirect: "/error" }));
+    */
 
-router.get('/google/callback', passport.authenticate('google', { successRedirect: "/dashboard", failureRedirect: "/error" }));
-*/
-
+/* can use for debugging
 router.get('/google/callback', function(req, res, next) {
     passport.authenticate('google', function(err, user, info) {
         console.log(err);
@@ -30,6 +30,7 @@ router.get('/google/callback', function(req, res, next) {
 }, (req, res) => {
     res.redirect("/dashboard")
 });
+*/
 
 //logout
 router.get("/logout", (req, res) => {
