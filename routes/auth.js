@@ -3,7 +3,7 @@ const router = express.Router()
 const passport = require("passport")
 
 //google auth
-router.get("/google", passport.authenticate("google", { scope: ["profile"] }))
+router.get("/google", passport.authenticate("google", { scope: ["openid", "profile"] }))
 
 //callback
 /*
