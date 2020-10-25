@@ -1,6 +1,5 @@
 const express = require("express")
 const app = express()
-const dotenv = require("dotenv")
 const expressLayouts = require("express-ejs-layouts")
 const bodyParser = require("body-parser")
 const methodOverride = require("method-override")
@@ -38,7 +37,10 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 //load config
-dotenv.config({ path: "./config/config.env" })
+if (process.env.NODE_ENV !== 'production') {
+    const dotenv = require("dotenv").config()
+    dotenv.config({ path: "./config/config.env" })
+}
 require("./config/passport")(passport)
 
 //connect to database
