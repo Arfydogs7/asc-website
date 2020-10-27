@@ -6,7 +6,7 @@ const passport = require("passport")
 router.get("/google", passport.authenticate("google", { scope: ["openid", "profile"] }))
 
 //callback
-router.get("/google/callback", passport.authenticate("google", { failureRedirect: "/error" }), (req, res) => {
+router.get("/google/callback", passport.authenticate("google", { failureRedirect: "/" }), (req, res) => {
     res.redirect("/dashboard")
 })
 
